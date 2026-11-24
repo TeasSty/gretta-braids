@@ -36,16 +36,21 @@ export function Hero() {
 
   return (
     <section className="hero" id="top" ref={ref} aria-label="Главный экран">
-      <div className="hero__media" ref={mediaRef} aria-hidden="true">
+      <div
+        className="hero__media"
+        ref={mediaRef}
+        aria-hidden="true"
+        style={{ ['--hero-poster' as string]: `url(${media.hero})` }}
+      >
         <video
           className="hero__video"
-          src={media.heroVideo}
+          src={`${media.heroVideo}#t=1.5`}
           poster={media.hero}
           autoPlay
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="auto"
         />
       </div>
       <div className="hero__veil" aria-hidden="true" />

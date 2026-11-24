@@ -233,12 +233,59 @@
 }
 
 @media (max-width: 720px) {
-  .hero__media img {
+  .hero__media img,
+  .hero__video {
     object-position: center 12%;
   }
 
   .hero h1 {
     font-size: clamp(3.1rem, 16vw, 4.4rem);
+  }
+}
+
+/* Desktop: vertical VK clip as reel panel — mobile framing untouched */
+@media (min-width: 821px) {
+  .hero__media {
+    inset: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: stretch;
+    padding-right: clamp(1.5rem, 5vw, 4.75rem);
+    background:
+      linear-gradient(
+        105deg,
+        rgba(18, 18, 18, 0.9) 0%,
+        rgba(18, 18, 18, 0.62) 42%,
+        rgba(18, 18, 18, 0.3) 100%
+      ),
+      var(--hero-poster) center / cover no-repeat;
+  }
+
+  .hero__video {
+    width: min(28rem, 36vw);
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    transform: none;
+    box-shadow: -1.75rem 0 3.75rem rgba(0, 0, 0, 0.45);
+  }
+
+  .hero.is-in .hero__video {
+    transform: none;
+  }
+
+  .hero__veil {
+    background: linear-gradient(
+      105deg,
+      rgba(18, 18, 18, 0.55) 0%,
+      rgba(18, 18, 18, 0.22) 48%,
+      rgba(18, 18, 18, 0.08) 72%,
+      rgba(18, 18, 18, 0.4) 100%
+    );
+  }
+
+  .hero__copy {
+    max-width: min(34rem, 46vw);
   }
 }
 
