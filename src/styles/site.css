@@ -91,17 +91,31 @@
   will-change: transform;
 }
 
+.hero__still,
 .hero__video {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 18%;
   outline: none;
+}
+
+.hero__still {
+  object-position: center 28%;
+  filter: contrast(1.04) saturate(1.08);
+  transform: scale(1.06);
+  transition: transform 1.6s var(--ease);
+}
+
+.hero__video {
+  object-position: center 18%;
   transform: scale(1.06);
   transition: transform 1.6s var(--ease);
   filter: contrast(1.04) saturate(1.05);
 }
 
+.hero.is-in .hero__still,
 .hero.is-in .hero__video {
   transform: scale(1);
 }
@@ -233,7 +247,10 @@
 }
 
 @media (max-width: 720px) {
-  .hero__media img,
+  .hero__still {
+    display: none;
+  }
+
   .hero__video {
     object-position: center 12%;
   }
@@ -243,49 +260,22 @@
   }
 }
 
-/* Desktop: vertical VK clip as reel panel — mobile framing untouched */
-@media (min-width: 821px) {
-  .hero__media {
-    inset: 0;
-    display: flex;
-    justify-content: flex-end;
-    align-items: stretch;
-    padding-right: clamp(1.5rem, 5vw, 4.75rem);
-    background:
-      linear-gradient(
-        105deg,
-        rgba(18, 18, 18, 0.9) 0%,
-        rgba(18, 18, 18, 0.62) 42%,
-        rgba(18, 18, 18, 0.3) 100%
-      ),
-      var(--hero-poster) center / cover no-repeat;
+/* Desktop: full-bleed work photo — vertical clip stays phone-only */
+@media (min-width: 721px) {
+  .hero__still {
+    display: block;
   }
 
   .hero__video {
-    width: min(28rem, 36vw);
-    height: 100%;
-    object-fit: cover;
-    object-position: center 30%;
-    transform: none;
-    box-shadow: -1.75rem 0 3.75rem rgba(0, 0, 0, 0.45);
+    display: none;
   }
 
-  .hero.is-in .hero__video {
-    transform: none;
-  }
-
-  .hero__veil {
-    background: linear-gradient(
-      105deg,
-      rgba(18, 18, 18, 0.55) 0%,
-      rgba(18, 18, 18, 0.22) 48%,
-      rgba(18, 18, 18, 0.08) 72%,
-      rgba(18, 18, 18, 0.4) 100%
-    );
+  .hero__media {
+    inset: 0;
   }
 
   .hero__copy {
-    max-width: min(34rem, 46vw);
+    max-width: min(40rem, 52vw);
   }
 }
 
