@@ -1,0 +1,104 @@
+:root {
+  /* From logo: mono crown/silhouette + ash ground */
+  --hair: #121212;
+  --ash: #6e6e6e;
+  --plaster: #dedcd8;
+  /* From VK cover fibers + real kanekalon work */
+  --lilac: #7a6a9a;
+  --copper: #c45f2c;
+  --ink: #1c1c1c;
+  --foam: #f2f0ec;
+  --line: color-mix(in srgb, var(--ink) 14%, transparent);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --pad: clamp(1.25rem, 4vw, 3.5rem);
+  --max: 72rem;
+  font-family: Onest, system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--plaster);
+  line-height: 1.5;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--plaster);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  outline: 1px solid rgba(0, 0, 0, 0.08);
+  outline-offset: -1px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: 0;
+  background: none;
+}
+
+h1,
+h2,
+h3 {
+  font-family: Oswald, Impact, sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-wrap: balance;
+  line-height: 1.05;
+  margin: 0;
+}
+
+p {
+  text-wrap: pretty;
+  margin: 0;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+#root {
+  min-height: 100svh;
+}
