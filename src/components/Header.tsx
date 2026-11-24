@@ -1,10 +1,10 @@
-import { brand, nav } from '../data/content'
+import { brand, media, nav } from '../data/content'
 
 export function Header() {
   return (
     <header className="site-header">
       <a className="site-header__brand" href="#top">
-        <img src="/images/logo.jpg" alt="" width={40} height={40} />
+        <img src={media.logo} alt="" width={40} height={40} />
         <span>{brand.name}</span>
       </a>
       <nav className="site-header__nav" aria-label="Разделы">

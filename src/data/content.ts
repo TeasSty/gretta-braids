@@ -1,3 +1,5 @@
+import { asset } from '../lib/asset'
+
 export const brand = {
   name: 'GRETTA BRAIDS',
   city: 'Бузулук',
@@ -19,64 +21,71 @@ export const nav = [
   { href: '#book', label: 'Запись' },
 ] as const
 
+export const media = {
+  logo: asset('images/logo.jpg'),
+  hero: asset('images/hero.jpg'),
+  heroVideo: asset('videos/hero-clip.mp4'),
+  tech: asset('images/tech.jpg'),
+} as const
+
 export const works = [
   {
     id: '01',
-    src: '/images/vk-work-01.jpg',
+    src: asset('images/vk-01.jpg'),
     label: 'Медные пучки',
     alt: 'Афрокосы медного каникалона с двумя пучками',
-    w: 'tall',
+    w: 'tall' as const,
   },
   {
     id: '02',
-    src: '/images/row-07.jpg',
-    label: 'Афрокудри',
-    alt: 'Афрокудри с мягкими кончиками',
-    w: 'mid',
+    src: asset('images/vk-02.jpg'),
+    label: 'Работа студии',
+    alt: 'Работа GRETTA BRAIDS',
+    w: 'mid' as const,
   },
   {
     id: '03',
-    src: '/images/row-06.jpg',
-    label: 'Knotless',
-    alt: 'Knotless-косы с чистыми треугольными проборами',
-    w: 'wide',
+    src: asset('images/vk-03.jpg'),
+    label: 'Фактура',
+    alt: 'Фактура плетения',
+    w: 'wide' as const,
   },
   {
     id: '04',
-    src: '/images/row-01.jpg',
-    label: 'Брейды',
-    alt: 'Студийный портрет с брейдами',
-    w: 'mid',
+    src: asset('images/vk-04.jpg'),
+    label: 'Образ',
+    alt: 'Готовый образ афроплетения',
+    w: 'mid' as const,
   },
   {
     id: '05',
-    src: '/images/row-02.jpg',
-    label: 'Афрокосы',
-    alt: 'Портрет с афрокосами',
-    w: 'tall',
+    src: asset('images/vk-05.jpg'),
+    label: 'Детали',
+    alt: 'Детали проборов и кос',
+    w: 'tall' as const,
   },
   {
     id: '06',
-    src: '/images/row-03.jpg',
-    label: 'Бокс-брейды',
-    alt: 'Стильные афрокосы крупным планом',
-    w: 'mid',
+    src: asset('images/vk-06.jpg'),
+    label: 'Комплект',
+    alt: 'Готовый комплект',
+    w: 'mid' as const,
   },
   {
     id: '07',
-    src: '/images/row-04.jpg',
-    label: 'Фактура',
-    alt: 'Фактура кос при естественном свете',
-    w: 'wide',
+    src: asset('images/vk-07.jpg'),
+    label: 'Стиль',
+    alt: 'Стиль афрокос',
+    w: 'wide' as const,
   },
   {
     id: '08',
-    src: '/images/row-05.jpg',
-    label: 'Процесс',
-    alt: 'Плетение в студии',
-    w: 'mid',
+    src: asset('images/vk-08.jpg'),
+    label: 'Студия',
+    alt: 'Работа в студии',
+    w: 'mid' as const,
   },
-] as const
+]
 
 export const craftPoints = [
   {

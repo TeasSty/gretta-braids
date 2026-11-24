@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { brand } from '../data/content'
+import { brand, media } from '../data/content'
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null)
@@ -10,13 +10,19 @@ export function Hero() {
     if (!node) return
     const frame = requestAnimationFrame(() => node.classList.add('is-in'))
 
-    const media = mediaRef.current
+    const layer = mediaRef.current
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const video = layer?.querySelector('video')
+
+    if (reduce && video) {
+      video.pause()
+      video.removeAttribute('autoplay')
+    }
 
     const onScroll = () => {
-      if (!media || reduce) return
+      if (!layer || reduce) return
       const y = Math.min(window.scrollY, window.innerHeight)
-      media.style.transform = `translate3d(0, ${y * 0.14}px, 0)`
+      layer.style.transform = `translate3d(0, ${y * 0.14}px, 0)`
     }
 
     onScroll()
@@ -31,26 +37,27 @@ export function Hero() {
   return (
     <section className="hero" id="top" ref={ref} aria-label="Главный экран">
       <div className="hero__media" ref={mediaRef} aria-hidden="true">
-        <img
-          src="/images/hero.jpg"
-          alt=""
-          width={1080}
-          height={1440}
-          fetchPriority="high"
+        <video
+          className="hero__video"
+          src={media.heroVideo}
+          poster={media.hero}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
         />
       </div>
       <div className="hero__veil" aria-hidden="true" />
       <div className="hero__copy">
         <img
           className="hero__logo"
-          src="/images/logo.jpg"
+          src={media.logo}
           alt=""
           width={88}
           height={88}
         />
-        <p className="hero__city">
-          {brand.city}
-        </p>
+        <p className="hero__city">{brand.city}</p>
         <h1>
           <span className="hero__brand-line">Gretta</span>
           <span className="hero__brand-line">Braids</span>

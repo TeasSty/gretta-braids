@@ -1,4 +1,4 @@
-import { craftPoints } from '../data/content'
+import { craftPoints, media } from '../data/content'
 
 export function Craft() {
   return (
@@ -18,11 +18,11 @@ export function Craft() {
       <div className="craft__grid">
         <figure className="craft__photo">
           <img
-            src="/images/tech.jpg"
-            alt="Руки мастера плетут ряд афрокос"
+            src={media.tech}
+            alt="Фактура каникалона GRETTA BRAIDS"
             loading="lazy"
-            width={1200}
-            height={900}
+            width={1920}
+            height={768}
           />
         </figure>
         <ol className="craft__list">
